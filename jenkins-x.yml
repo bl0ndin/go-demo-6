@@ -1,5 +1,5 @@
 buildPack: go
-dockerRegistryOwner: vfarcic
+dockerRegistryOwner: i-guide-244908
 pipelineConfig:
   pipelines:
     pullRequest:
