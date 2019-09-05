@@ -2,7 +2,7 @@ apiVersion: skaffold/v1beta2
 kind: Config
 build:
   artifacts:
-  - image: bl0ndin/go-demo-6
+  - image: i-guide-244908/go-demo-6
     context: .
     docker: {}
   tagPolicy:
