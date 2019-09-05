@@ -1,0 +1,39 @@
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-g22m8[0m
+{"level":"warn","ts":1567692369.8464305,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1567692369.8469296,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-rjdpq[0m
+{"level":"warn","ts":1567692370.088064,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1567692370.0895836,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-bl0ndin-go-demo-6-master-r-pcmcn[0m
+{"level":"warn","ts":1567692384.116627,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1567692385.8605282,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/*******/go-demo-6.git @ a0a381969ecc1c91dc26748ba2bb1f11f13d2eaa in path /workspace/source"}
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a0a381969ecc1c91dc26748ba2bb1f11f13d2eaa
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.jx/jenkins-x-versions
+Effective pipeline written to jenkins-x-release-effective.yml
+
+Showing logs for build [32mmeta-bl0ndin-go-demo-6-master-r-krrk2-5[0m stage [32mmeta-pipeline[0m and container [32mstep-create-tekton-crds[0m
+running command: echo \$(jx-release-version) > VERSION
+
+running command: jx step tag --version \$(cat VERSION)
+Updating chart version in charts/go-demo-6/Chart.yaml to 1.0.403
+Updating repository in charts/go-demo-6/values.yaml to eu.gcr.io/i-guide-244908/go-demo-6
+Updating tag in charts/go-demo-6/values.yaml to 1.0.403
+error: Have you set up a git credential helper? See https://help.github.com/articles/caching-your-github-password-in-git/
+: git output: fatal: could not read Username for 'https://github.com': No such device or address: failed to run 'git push origin v1.0.403' command in directory '', output: 'fatal: could not read Username for 'https://github.com': No such device or address'
+error: failed to set the version on release pipelines: failed to run '/bin/sh -c jx step tag --version $(cat VERSION)' command in directory '/workspace/source', output: ''
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-tekton-crds'. The execution of the pipeline has stopped.[0m
